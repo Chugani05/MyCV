@@ -60,16 +60,36 @@ class CvScreen extends StatelessWidget {
         ContactInfo("Spain, Canary Islands", Icons.location_on),
       ],
     );
-    
-    final leftColumn = Column(children: [mainImage, contactSection]);
+
+    final informationSection = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Subtitle("INFORMATION"),
+        InformationInfo('- Disponibilidad para viajar'),
+      ]
+    );
+
+    final toolsSection = Column(
+      children: [
+        Subtitle("TOOLS"),
+        ToolsInfo(50, "x"),
+      ]
+    );
+
+    final leftColumn = Column(children: [mainImage, contactSection, informationSection, toolsSection]);
 
     final rightColumn = Column(children: [titleText]);
 
-    return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 25,
-        children: [leftColumn, rightColumn],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 60.0),
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 25,
+            children: [leftColumn, rightColumn],
+          ),
+        ),
       ),
     );
   }
@@ -142,6 +162,51 @@ class ContactInfo extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class InformationInfo extends StatelessWidget {
+  final String title;
+
+  const InformationInfo(this.title, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '- ',
+          style: TextStyle(fontSize: 16),
+        ),
+        Expanded(
+          child: Text(
+            title,
+            style: TextStyle(fontSize: 16),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ToolsInfo extends StatelessWidget {
+  final double value;
+  final String label;
+
+  const ToolsInfo(this.value, this.label, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(label),
+        Slider(
+          value: value,
+          onChanged: null,
+        ),
+      ],
     );
   }
 }
