@@ -51,8 +51,16 @@ class CvScreen extends StatelessWidget {
       style: Theme.of(context).textTheme.titleLarge,
     );
 
-    final contactSection = Row(children: [Subtitle("CONTACT"), ContactInfo("684-156-768", Icons.phone), ContactInfo("rashi.chugani.n@gmail.com", Icons.email), ContactInfo("Spain, Canary Islands", Icons.map)]);
-
+    final contactSection = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Subtitle("CONTACT"),
+        ContactInfo("684-156-768", Icons.phone),
+        ContactInfo("rashi.chugani.n@gmail.com", Icons.email),
+        ContactInfo("Spain, Canary Islands", Icons.location_on),
+      ],
+    );
+    
     final leftColumn = Column(children: [mainImage, contactSection]);
 
     final rightColumn = Column(children: [titleText]);
@@ -74,10 +82,28 @@ class Subtitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black,
-      width: 100,
-      child: Text(title, style: Theme.of(context).textTheme.titleMedium),
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 50.0,
+        bottom: 10.0,
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(50),
+          bottomRight: Radius.circular(50),
+        ),
+        child: Container(
+          color: Colors.black,
+          width: 250,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 20.0),
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -90,18 +116,32 @@ class ContactInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          decoration: ,
-          child: Icon(icon, color: Colors.white, size: 40),
-        )
-        Text(
-          title,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            color: Colors.grey[400],
+              padding: EdgeInsets.all(2),
+              child : Container(
+                decoration: BoxDecoration(
+                color: Colors.black,
+                border: Border.all(
+                  width: 8,
+                ),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Icon(icon, color: Colors.white, size: 20),
+            ),
+          ),
+          SizedBox(width: 16),
+          Text(
+            title,
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }
