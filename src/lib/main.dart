@@ -96,9 +96,9 @@ class CvScreen extends StatelessWidget {
 }
 
 class Subtitle extends StatelessWidget {
-  final String title;
+  final String lable;
 
-  const Subtitle(this.title, {super.key});
+  const Subtitle(this.lable, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +118,7 @@ class Subtitle extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 20.0),
             child: Text(
-              title,
+              lable,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
@@ -129,10 +129,10 @@ class Subtitle extends StatelessWidget {
 }
 
 class ContactInfo extends StatelessWidget {
-  final String title;
+  final String lable;
   final IconData icon;
 
-  const ContactInfo(this.title, this.icon, {super.key});
+  const ContactInfo(this.lable, this.icon, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -157,7 +157,7 @@ class ContactInfo extends StatelessWidget {
           ),
           SizedBox(width: 16),
           Text(
-            title,
+            lable,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ],
@@ -167,9 +167,9 @@ class ContactInfo extends StatelessWidget {
 }
 
 class InformationInfo extends StatelessWidget {
-  final String title;
+  final String lable;
 
-  const InformationInfo(this.title, {super.key});
+  const InformationInfo(this.lable, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -182,7 +182,7 @@ class InformationInfo extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            title,
+            lable,
             style: TextStyle(fontSize: 16),
           ),
         ),
