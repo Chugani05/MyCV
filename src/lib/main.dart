@@ -91,9 +91,21 @@ class CvScreen extends StatelessWidget {
       ]
     );
 
+    final experienceSection = Column(
+      children: [
+        Subtitle(400, "WORK EXPERIENCE"),
+      ]
+    );
+
+    final educationSection = Column(
+      children: [
+        Subtitle(400, "EDUCATION AND TRAINING"),
+      ]
+    );
+
     final leftColumn = Column(children: [mainImage, contactSection, informationSection, skillsSection, languageSection]);
 
-    final rightColumn = Column(children: [titleText]);
+    final rightColumn = Column(children: [titleText, experienceSection, educationSection]);
 
     return SingleChildScrollView(
       child: Padding(
