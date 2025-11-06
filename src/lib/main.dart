@@ -43,7 +43,7 @@ class CvScreen extends StatelessWidget {
       ),
       height: 310,
       width: 300,
-      child: Image.asset('assets/images/profile-pic.jpg', fit: BoxFit.cover),
+      child: Image.asset('../assets/images/profile-pic.jpg', fit: BoxFit.cover),
     );
 
     final titleText = Text(
