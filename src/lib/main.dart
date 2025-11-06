@@ -97,7 +97,7 @@ class CvScreen extends StatelessWidget {
 
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.only(top: 60.0, bottom: 40.0),
+        padding: const EdgeInsets.only(top: 60.0, bottom: 60.0),
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
