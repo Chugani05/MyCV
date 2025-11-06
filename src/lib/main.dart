@@ -54,7 +54,7 @@ class CvScreen extends StatelessWidget {
     final contactSection = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Subtitle("CONTACT"),
+        Subtitle(300, "CONTACT"),
         ContactInfo("684-156-768", Icons.phone),
         ContactInfo("rashi.chugani.n@gmail.com", Icons.email),
         ContactInfo("Spain, Canary Islands", Icons.location_on),
@@ -64,14 +64,14 @@ class CvScreen extends StatelessWidget {
     final informationSection = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Subtitle("INFORMATION"),
+        Subtitle(300, "INFORMATION"),
         InformationInfo('- Disponibilidad para viajar'),
       ]
     );
 
     final toolsSection = Column(
       children: [
-        Subtitle("TOOLS"),
+        Subtitle(300, "TOOLS"),
         ToolsInfo(0.9, "Git"),
         ToolsInfo(0.8, "Visual Studio Code"),
         ToolsInfo(0.8, "Bootstrap"),
@@ -81,7 +81,17 @@ class CvScreen extends StatelessWidget {
       ]
     );
 
-    final leftColumn = Column(children: [mainImage, contactSection, informationSection, toolsSection]);
+    final languageSection = Column(
+      children: [
+        Subtitle(300, "LANGUAGE SKILLS"),
+        LanguagesInfo("Spanish", "Native"),
+        LanguagesInfo("English", "Advanced"),
+        LanguagesInfo("Shindi", "Intermediate"),
+        LanguagesInfo("Hindi", "Intermediate"),
+      ]
+    );
+
+    final leftColumn = Column(children: [mainImage, contactSection, informationSection, toolsSection, languageSection]);
 
     final rightColumn = Column(children: [titleText]);
 
@@ -101,9 +111,10 @@ class CvScreen extends StatelessWidget {
 }
 
 class Subtitle extends StatelessWidget {
+  final double width;
   final String label;
 
-  const Subtitle(this.label, {super.key});
+  const Subtitle(this.width, this.label, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +130,7 @@ class Subtitle extends StatelessWidget {
         ),
         child: Container(
           color: Colors.black,
-          width: 300,
+          width: width,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
             child: Text(
@@ -225,6 +236,40 @@ class ToolsInfo extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class LanguagesInfo extends StatelessWidget {
+  final String label1;
+  final String label2;
+
+  const LanguagesInfo(this.label1, this.label2, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label1,
+              style: TextStyle(fontSize: 15),
+            ),
+            VerticalDivider(
+              color: Colors.black,
+              thickness: 4,
+              width: 20,
+            ),
+            Text(
+              label2,
+              style: TextStyle(fontSize: 15),
+            ),
+          ],
+        ),
+      )
     );
   }
 }
