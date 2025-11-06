@@ -93,8 +93,8 @@ class CvScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Subtitle(300, "INFORMATION"),
-        InformationInfo('- Disponibilidad para viajar'),
-      ]
+        InformationInfo(labels: ['Willingness to travel', 'Flexibility to relocate if necessary', 'Experience in teamwork.']),
+      ], 
     );
 
     final skillsSection = Column(
@@ -223,25 +223,19 @@ class ContactInfo extends StatelessWidget {
 }
 
 class InformationInfo extends StatelessWidget {
-  final String label;
+  final List<String> labels;
 
-  const InformationInfo(this.label, {super.key});
+  const InformationInfo({super.key, required this.labels});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          '- ',
-          style: TextStyle(fontSize: 16),
-        ),
-        // Expanded(
-        //   child: Text(
-        //     label,
-        //     style: TextStyle(fontSize: 16),
-        //   ),
-        // ),
+        ...labels.map((label) => Padding(
+              padding: const EdgeInsets.only(left: 4.0),
+              child: Text('• $label', style: TextStyle(fontSize: 16)),
+            )),
       ],
     );
   }
