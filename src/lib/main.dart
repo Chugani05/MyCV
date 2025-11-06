@@ -43,12 +43,40 @@ class CvScreen extends StatelessWidget {
       ),
       height: 310,
       width: 300,
-      child: Image.asset('../assets/images/profile-pic.jpg', fit: BoxFit.cover),
+      child: Image.asset('assets/images/profile-pic.jpg', fit: BoxFit.cover),
     );
 
-    final titleText = Text(
-      "Chugani",
-      style: Theme.of(context).textTheme.titleLarge,
+    final titleText = Column(
+      children: [
+        Stack(
+          children: [
+            SizedBox(
+              width: 500,
+              height: 250,
+              child: Image.asset('assets/images/surname.png'),
+            ),
+            Positioned(
+              bottom: 150,
+              child: SizedBox(
+                width: 500,
+                height: 250,
+                child: Image.asset('assets/images/name.png'),
+              ),
+            ),
+          ],
+        ),
+        Divider(
+          color: Colors.black,
+          thickness: 4,
+        ),
+        Text(
+          'WEB DEVELOPER',
+          style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
+      ],
     );
 
     final contactSection = Column(
