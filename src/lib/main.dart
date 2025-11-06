@@ -21,7 +21,7 @@ class MyCVApp extends StatelessWidget {
           ),
           titleMedium: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 17,
             letterSpacing: 1,
           ),
         ),
@@ -41,8 +41,8 @@ class CvScreen extends StatelessWidget {
         border: Border.all(width: 5),
         borderRadius: BorderRadius.circular(4),
       ),
-      height: 260,
-      width: 240,
+      height: 310,
+      width: 300,
       child: Image.asset('assets/images/profile-pic.jpg', fit: BoxFit.cover),
     );
 
@@ -72,7 +72,12 @@ class CvScreen extends StatelessWidget {
     final toolsSection = Column(
       children: [
         Subtitle("TOOLS"),
-        ToolsInfo(50, "x"),
+        ToolsInfo(0.9, "Git"),
+        ToolsInfo(0.8, "Visual Studio Code"),
+        ToolsInfo(0.8, "Bootstrap"),
+        ToolsInfo(0.7, "React, Vue.js"),
+        ToolsInfo(0.8, "Python"),
+        ToolsInfo(0.5, "Java"),
       ]
     );
 
@@ -82,7 +87,7 @@ class CvScreen extends StatelessWidget {
 
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.only(top: 60.0),
+        padding: const EdgeInsets.only(top: 60.0, bottom: 40.0),
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +109,7 @@ class Subtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 50.0,
+        top: 40.0,
         bottom: 10.0,
       ),
       child: ClipRRect(
@@ -114,9 +119,9 @@ class Subtitle extends StatelessWidget {
         ),
         child: Container(
           color: Colors.black,
-          width: 250,
+          width: 300,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 20.0),
+            padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
             child: Text(
               label,
               style: Theme.of(context).textTheme.titleMedium,
@@ -158,7 +163,7 @@ class ContactInfo extends StatelessWidget {
           SizedBox(width: 16),
           Text(
             label,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 16),
           ),
         ],
       ),
@@ -180,12 +185,12 @@ class InformationInfo extends StatelessWidget {
           '- ',
           style: TextStyle(fontSize: 16),
         ),
-        Expanded(
-          child: Text(
-            label,
-            style: TextStyle(fontSize: 16),
-          ),
-        ),
+        // Expanded(
+        //   child: Text(
+        //     label,
+        //     style: TextStyle(fontSize: 16),
+        //   ),
+        // ),
       ],
     );
   }
@@ -199,14 +204,27 @@ class ToolsInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(label),
-        Slider(
-          value: value,
-          onChanged: null,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: TextStyle(fontSize: 15),
+          ),
+          SizedBox(
+            width: 240,
+            child: LinearProgressIndicator(
+              value: value,
+              color: Colors.grey,
+              backgroundColor: Colors.black,
+              borderRadius: BorderRadius.circular(50),
+              minHeight: 10,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
