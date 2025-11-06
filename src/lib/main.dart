@@ -69,15 +69,15 @@ class CvScreen extends StatelessWidget {
       ]
     );
 
-    final toolsSection = Column(
+    final skillsSection = Column(
       children: [
-        Subtitle(300, "TOOLS"),
-        ToolsInfo(0.9, "Git"),
-        ToolsInfo(0.8, "Visual Studio Code"),
-        ToolsInfo(0.8, "Bootstrap"),
-        ToolsInfo(0.7, "React, Vue.js"),
-        ToolsInfo(0.8, "Python"),
-        ToolsInfo(0.5, "Java"),
+        Subtitle(300, "SKILLS"),
+        SkillsInfo(0.9, "Git"),
+        SkillsInfo(0.8, "Visual Studio Code"),
+        SkillsInfo(0.8, "Bootstrap"),
+        SkillsInfo(0.7, "React, Vue.js"),
+        SkillsInfo(0.8, "Python"),
+        SkillsInfo(0.5, "Java"),
       ]
     );
 
@@ -91,7 +91,7 @@ class CvScreen extends StatelessWidget {
       ]
     );
 
-    final leftColumn = Column(children: [mainImage, contactSection, informationSection, toolsSection, languageSection]);
+    final leftColumn = Column(children: [mainImage, contactSection, informationSection, skillsSection, languageSection]);
 
     final rightColumn = Column(children: [titleText]);
 
@@ -207,11 +207,11 @@ class InformationInfo extends StatelessWidget {
   }
 }
 
-class ToolsInfo extends StatelessWidget {
+class SkillsInfo extends StatelessWidget {
   final double value;
   final String label;
 
-  const ToolsInfo(this.value, this.label, {super.key});
+  const SkillsInfo(this.value, this.label, {super.key});
 
   @override
   Widget build(BuildContext context) {
