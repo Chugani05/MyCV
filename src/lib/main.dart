@@ -48,32 +48,27 @@ class CvScreen extends StatelessWidget {
 
     final titleText = Column(
       children: [
-        Stack(
-          children: [
-            SizedBox(
-              width: 500,
-              height: 250,
-              child: Image.asset('assets/images/surname.png'),
-            ),
-            Positioned(
-              bottom: 150,
-              child: SizedBox(
-                width: 500,
-                height: 250,
-                child: Image.asset('assets/images/name.png'),
-              ),
-            ),
-          ],
+        SizedBox(
+          height: 320,
+          child: Stack(
+            children: [
+              Positioned(top: 135, child: SizedBox(width: 450, child: Image.asset('assets/images/surname.png'))),
+              SizedBox(width: 450, child: Image.asset('assets/images/name.png')),
+            ],
+          ),
         ),
-        Divider(
-          color: Colors.black,
-          thickness: 4,
-        ),
-        Text(
-          'WEB DEVELOPER',
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w900,
+        Container(
+          width: 425,
+          margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+          padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+          decoration: BoxDecoration(border: BoxBorder.fromLTRB(top: BorderSide(width: 5))),
+          child: Text(
+            'WEB DEVELOPER',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.w900,
+            ),
           ),
         ),
       ],
@@ -131,7 +126,7 @@ class CvScreen extends StatelessWidget {
       ]
     );
 
-    final leftColumn = Column(children: [mainImage, contactSection, informationSection, skillsSection, languageSection]);
+    final leftColumn = Column(children: [SizedBox(height: 30,), mainImage, contactSection, informationSection, skillsSection, languageSection]);
 
     final rightColumn = Column(children: [titleText, experienceSection, educationSection]);
 
@@ -141,6 +136,7 @@ class CvScreen extends StatelessWidget {
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 25,
             children: [leftColumn, rightColumn],
           ),
@@ -307,3 +303,4 @@ class LanguagesInfo extends StatelessWidget {
     );
   }
 }
+
