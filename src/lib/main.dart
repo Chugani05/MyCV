@@ -114,16 +114,27 @@ class CvScreen extends StatelessWidget {
       ]
     );
 
-    final experienceSection = Column(
-      children: [
-        Subtitle(440, "WORK EXPERIENCE"),
-      ]
+    final experienceSection = SizedBox(
+      width: 440,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Subtitle(440, "WORK EXPERIENCE"),
+          ExperienceInfo("JOHN WESTON GROUP (2025)", "Web Application Developer", "Designed and developed responsive and visually appealing web pages using Webflow, Framer, CSS, and Bootstrap. Implemented interactive features and dynamic functionality through TypeScript and API integration to enhance user experience and performance.", isWorkExperience: true,)
+        ]
+      ),
     );
 
-    final educationSection = Column(
-      children: [
-        Subtitle(440, "EDUCATION AND TRAINING"),
-      ]
+    final educationSection = SizedBox(
+      width: 440,
+      child: Column(
+        spacing: 15,
+        children: [
+          Subtitle(440, "EDUCATION AND TRAINING"),
+          ExperienceInfo("WEB APPLICATION DEVELOPMENT (2023-2025)", "Puerto de la Cruz Secondary Education Institute - Telesforo Bravo", "Web Programmer", isWorkExperience: false,),
+          ExperienceInfo("MULTI-PLATFORM APPLICATION DEVELOPMENT (2025-2026)", "Puerto de la Cruz Secondary Education Institute - Telesforo Bravo", "Software Programmer", isWorkExperience: false,),
+        ]
+      ),
     );
 
     final leftColumn = Column(children: [SizedBox(height: 30,), mainImage, contactSection, informationSection, skillsSection, languageSection]);
@@ -157,7 +168,7 @@ class Subtitle extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         top: 40.0,
-        bottom: 10.0,
+        bottom: 15.0,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.only(
@@ -303,6 +314,28 @@ class LanguagesInfo extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class ExperienceInfo extends StatelessWidget {
+  final bool isWorkExperience;
+  final String label1;
+  final String label2;
+  final String label3;
+
+  const ExperienceInfo(this.label1, this.label2, this.label3, {super.key, required this.isWorkExperience});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(label1, style: TextStyle(fontSize: 19, fontWeight: isWorkExperience ? FontWeight.w900 : FontWeight.w800)),
+        Text(label2, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, fontStyle: FontStyle.italic)),
+        Text(label3, style: TextStyle(fontSize: 17, fontStyle: isWorkExperience ? FontStyle.normal : FontStyle.italic)),
+      ],
     );
   }
 }
