@@ -41,8 +41,8 @@ class CvScreen extends StatelessWidget {
         border: Border.all(width: 5),
         borderRadius: BorderRadius.circular(4),
       ),
-      height: 310,
-      width: 300,
+      height: 350,
+      width: 340,
       child: Image.asset('assets/images/profile-pic.jpg', fit: BoxFit.cover),
     );
 
@@ -58,7 +58,7 @@ class CvScreen extends StatelessWidget {
           ),
         ),
         Container(
-          width: 425,
+          width: 450,
           margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
           padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
           decoration: BoxDecoration(border: BoxBorder.fromLTRB(top: BorderSide(width: 5))),
@@ -77,7 +77,7 @@ class CvScreen extends StatelessWidget {
     final contactSection = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Subtitle(300, "CONTACT"),
+        Subtitle(340, "CONTACT"),
         ContactInfo("684-156-768", Icons.phone),
         ContactInfo("rashi.chugani.n@gmail.com", Icons.email),
         ContactInfo("Spain, Canary Islands", Icons.location_on),
@@ -87,14 +87,14 @@ class CvScreen extends StatelessWidget {
     final informationSection = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Subtitle(300, "INFORMATION"),
+        Subtitle(340, "INFORMATION"),
         InformationInfo(labels: ['Willingness to travel', 'Flexibility to relocate if necessary', 'Experience in teamwork.']),
       ], 
     );
 
     final skillsSection = Column(
       children: [
-        Subtitle(300, "SKILLS"),
+        Subtitle(340, "SKILLS"),
         SkillsInfo(0.9, "Git"),
         SkillsInfo(0.8, "Visual Studio Code"),
         SkillsInfo(0.8, "Bootstrap"),
@@ -106,7 +106,7 @@ class CvScreen extends StatelessWidget {
 
     final languageSection = Column(
       children: [
-        Subtitle(300, "LANGUAGE SKILLS"),
+        Subtitle(340, "LANGUAGE SKILLS"),
         LanguagesInfo("Spanish", "Native"),
         LanguagesInfo("English", "Advanced"),
         LanguagesInfo("Shindi", "Intermediate"),
@@ -116,13 +116,13 @@ class CvScreen extends StatelessWidget {
 
     final experienceSection = Column(
       children: [
-        Subtitle(400, "WORK EXPERIENCE"),
+        Subtitle(440, "WORK EXPERIENCE"),
       ]
     );
 
     final educationSection = Column(
       children: [
-        Subtitle(400, "EDUCATION AND TRAINING"),
+        Subtitle(440, "EDUCATION AND TRAINING"),
       ]
     );
 
@@ -278,29 +278,31 @@ class LanguagesInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: IntrinsicHeight(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
+    return SizedBox(
+      width: 245,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            width: 100,
+            margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
+            decoration: BoxDecoration(border: BoxBorder.fromLTRB(right: BorderSide(width: 4))),
+            child: Text(
               label1,
               style: TextStyle(fontSize: 15),
+              textAlign: TextAlign.left,
             ),
-            VerticalDivider(
-              color: Colors.black,
-              thickness: 4,
-              width: 20,
-            ),
-            Text(
+          ),
+          SizedBox(
+            width: 100,
+            child: Text(
               label2,
               style: TextStyle(fontSize: 15),
+              textAlign: TextAlign.left,
             ),
-          ],
-        ),
-      )
+          ),
+        ],
+      ),
     );
   }
 }
-
