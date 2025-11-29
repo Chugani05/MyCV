@@ -8,7 +8,7 @@ class MyCVApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Currículum Vitae',
+      title: 'Rashi Chugani CV',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
@@ -63,7 +63,7 @@ class CvScreen extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
           decoration: BoxDecoration(border: BoxBorder.fromLTRB(top: BorderSide(width: 5))),
           child: Text(
-            'WEB DEVELOPER',
+            'WEB & SOFTWARE DEVELOPER',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 17,
@@ -78,18 +78,11 @@ class CvScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Subtitle(340, "CONTACT"),
-        ContactInfo("684-156-768", Icons.phone),
-        ContactInfo("rashi.chugani.n@gmail.com", Icons.email),
-        ContactInfo("Spain, Canary Islands", Icons.location_on),
+        ContactInfo("https://github.com/Chugani05", Icons.link),
+        ContactInfo("https://05butterfly.github.io", Icons.language),
+        ContactInfo("rashi.chugani.n@gmail.com", Icons.mail_rounded),
+        ContactInfo("Spain, Canary Islands", Icons.location_pin),
       ],
-    );
-
-    final informationSection = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Subtitle(340, "INFORMATION"),
-        InformationInfo(labels: ['Willingness to travel', 'Flexibility to relocate if necessary', 'Experience in teamwork.']),
-      ], 
     );
 
     final skillsSection = Column(
@@ -137,7 +130,7 @@ class CvScreen extends StatelessWidget {
       ),
     );
 
-    final leftColumn = Column(children: [SizedBox(height: 30,), mainImage, contactSection, informationSection, skillsSection, languageSection]);
+    final leftColumn = Column(children: [SizedBox(height: 30,), mainImage, contactSection, skillsSection, languageSection]);
 
     final rightColumn = Column(children: [titleText, experienceSection, educationSection]);
 
@@ -205,7 +198,6 @@ class ContactInfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            color: Colors.grey[400],
               padding: EdgeInsets.all(2),
               child : Container(
                 decoration: BoxDecoration(
@@ -225,25 +217,6 @@ class ContactInfo extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class InformationInfo extends StatelessWidget {
-  final List<String> labels;
-
-  const InformationInfo({super.key, required this.labels});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ...labels.map((label) => Padding(
-              padding: const EdgeInsets.only(left: 4.0),
-              child: Text('• $label', style: TextStyle(fontSize: 16)),
-            )),
-      ],
     );
   }
 }
